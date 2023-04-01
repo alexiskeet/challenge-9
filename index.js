@@ -37,22 +37,58 @@ const questions = [
         message: 'Please list any collaborators for your website:',
     },
     {
-        type: 'name',
+        type: 'input',
         name: 'license',
         message: 'What type of license do you have for this project? (If not applicable, write N/A)',
     },
-]
-.then((answers) => {
-    const readMeContent = writeToFile(answers);
+    {
+        type: 'input',
+        name: 'repoLink',
+        message: 'Please provide link to your GitHub repository:'
+    },
+    {
+        type: 'input',
+        name: 'liveLink',
+        message: 'Please provide link to your live wesbite:'
+    },
+];
+// .then((answers) => {
+//     const readMeContent = writeToFile(answers);
 
-    fs.writeFile('generated.README.md', readMeContent, (err) =>
-    err ? console.log(err) : console.log ('Sucessfully created README.md!')
-    );
-});
+//     fs.writeFile('generated.README.md', readMeContent, (err) =>
+//     err ? console.log(err) : console.log ('Sucessfully created README.md!')
+//     );
+//});
 
 // TODO: Create a function to write README file
-function writeToFile({name, title, description, installation, usage, credits, license}) {
+function writeToFile({name, title, description, installation, usage, credits, license, repoLink, liveLink}) {
     `
+    # ${title}
+    Created by: ${name}
+    ${description}
+
+    ## Table of Contents
+    - [Installation](#installation)
+    - [Usage](#usage)
+    - [Credits](#credits)
+    - [License](#license)
+    - [Links](#links)
+
+    ## Installation
+    ${installation}
+
+    ## Usage
+    ${usage}
+
+    ## Credits
+    ${credits}
+
+    ## License
+    ${license}
+
+    ## Links
+    - [GitHub-Repo](${repoLink})
+    - [Live-Site](${liveLink})
     `
 
 }
