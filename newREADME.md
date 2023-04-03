@@ -1,3 +1,4 @@
+
 # README Generator
 ![MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 Created by: Alexis k
@@ -9,7 +10,6 @@ Need a README file but don't have the time to format it? Use this README Generat
 - [Credits](#credits)
 - [License](#license)
 - [Links](#links)
-- [Video](#video)
 
 ## Installation
 N/A
@@ -21,12 +21,10 @@ To start the generator, write "node index" into the terminal and press enter. Fr
 N/A
 
 
-## License
-MIT
+    ## License
+    MIT
 
 ## Links
 - [GitHub-Repo](https://github.com/alexiskeet/challenge-9.git)
 - [Live-Site](N/A)
-
-## Video
-https://youtu.be/y2BSCg_vvHc
+    

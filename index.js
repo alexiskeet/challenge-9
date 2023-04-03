@@ -66,7 +66,7 @@ function init() {
 
     inquirer.prompt(questions)
     .then((responses) => writeFile('newREADME.md', generateMarkdown(responses)))
-    .then(() => console.log('Sucessfully wrote to generate.README.md!'))
+    .then(() => console.log('Sucessfully wrote to newREADME.md!'))
     .catch((err) => console.error(err));
 };
 
