@@ -1,11 +1,11 @@
-// TODO: Include packages needed for this application
+// packages needed for this application
 const inquirer = require('inquirer');
 const { writeFile } = require('fs').promises;
 const util = require('util');
 const path = require('path');
 const generateMarkdown = require('./utils/generateMarkdown');
 
-// TODO: Create an array of questions for user input
+// array of questions for user input
 const questions = [
     {
         type: 'input',
@@ -53,21 +53,15 @@ const questions = [
         message: 'Please provide link to your live wesbite:'
     },
 ];
-// .then((answers) => {
-//     const readMeContent = writeToFile(answers);
 
-//     fs.writeFile('generated.README.md', readMeContent, (err) =>
-//     err ? console.log(err) : console.log ('Sucessfully created README.md!')
-//     );
-//});
 
-// TODO: Create a function to write README file
+//function to write README file
 function writeToFile(fileName, data) {
     return fstat.writeFileSync(path.json(process.cwd(), fileName), data);
 }
  
 
-// TODO: Create a function to initialize app
+//function to initialize app
 function init() {
 
     inquirer.prompt(questions)
