@@ -2,6 +2,7 @@
 const inquirer = require('inquirer');
 const { writeFile } = require('fs').promises;
 const util = require('util');
+const path = require('path');
 const generateMarkdown = require('./utils/generateMarkdown');
 
 // TODO: Create an array of questions for user input
@@ -39,7 +40,7 @@ const questions = [
     {
         type: 'input',
         name: 'license',
-        message: 'What type of license do you have for this project? (If not applicable, write N/A)',
+        message: 'What type of license do you have for this project? (MIT, GPLv3, GPLv2, N/A)',
     },
     {
         type: 'input',
@@ -61,43 +62,16 @@ const questions = [
 //});
 
 // TODO: Create a function to write README file
-function writeToFile({name, title, description, installation, usage, credits, license, repoLink, liveLink}) {
-    `
-    # ${title}
-    Created by: ${name}
-    ${description}
-
-    ## Table of Contents
-    - [Installation](#installation)
-    - [Usage](#usage)
-    - [Credits](#credits)
-    - [License](#license)
-    - [Links](#links)
-
-    ## Installation
-    ${installation}
-
-    ## Usage
-    ${usage}
-
-    ## Credits
-    ${credits}
-
-    ## License
-    ${license}
-
-    ## Links
-    - [GitHub-Repo](${repoLink})
-    - [Live-Site](${liveLink})
-    `
-
+function writeToFile(fileName, data) {
+    return fstat.writeFileSync(path.json(process.cwd(), fileName), data);
 }
  
 
 // TODO: Create a function to initialize app
 function init() {
-    questions()
-    .then((answers) => writeFile('generate.README.md', writeToFile(answers)))
+
+    inquirer.prompt(questions)
+    .then((responses) => writeFile('newREADME.md', generateMarkdown(responses)))
     .then(() => console.log('Sucessfully wrote to generate.README.md!'))
     .catch((err) => console.error(err));
 };
