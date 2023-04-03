@@ -4,7 +4,7 @@ function renderLicenseBadge(license) {
   let licenseInput = license
   let yourLicense = ''
   if (licenseInput == 'MIT') {
-    yourLicence = '![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)'
+    yourLicense = '![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)'
   } else if (licenseInput == 'GPLv3') {
     yourLicense = '![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)'
   } else if (licenseInput == 'GPLv2') {
@@ -40,7 +40,7 @@ function renderLicenseSection(license) {
 function generateMarkdown(data) {
   return `
 # ${data.title}
-${renderLicenseBadge}
+${renderLicenseBadge(data.license)}
 Created by: ${data.name}
 ${data.description}
 
