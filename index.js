@@ -57,8 +57,8 @@ const questions = [
 
 //function to write README file
 function writeToFile(fileName, data) {
-    return fstat.writeFileSync(path.json(process.cwd(), fileName), data);
-}
+    return fs.fstat.writeFileSync(path.json(process.cwd(), fileName), data);
+};
  
 
 //function to initialize app
